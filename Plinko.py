@@ -6,16 +6,25 @@ def factorial(x):
       return 1
    else:
       return x * factorial(x-1)
+
+# function for getting the number of rows from the user, and ensuring the input is an integer.
+def get_rows_input():
+   while True:
+      try:
+         return int(input("How many rows: "))
+      
+      except ValueError:
+         print("Your input must be a number, try again.")
    
 # Start
 
 print("--==-- Plinko Odds Calculator --==--\n")
 
 # Get num of rows as input
-rows = int(input("How many rows: "))
+rows = get_rows_input()
 
 # State the number of buckets (same as rows)
-print("\nThere are " + str(rows) + " buckets.")
+print(f"\nThere are {rows} buckets.")
 
 # List the bucket numbers
 for i in range(rows):
@@ -43,7 +52,8 @@ for k in range(rows):
    percent = round(p * 100, 4)
 
    # print row
-   print("|  " + str(k) + "\t |  " + str(percent) + "%\t|  1/" + str(round(1/p, 4)) + "\t|")
+   #print("|  " + str(k) + "\t |  " + str(percent) + "%\t|  1/" + str(round(1/p, 4)) + "\t|")
+   print(f"|  {k}\t |  {percent}%\t|  1/{round(1/p, 4)}\t|")
 
    print(seperator)
 
